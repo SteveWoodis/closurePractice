@@ -10,12 +10,14 @@ var outer = function(){
 //Invoke outer saving the return value into another variable called 'inner'.
 
   //Code Here
+var inner = outer();
+
 
 //Once you do that, invoke inner.
 
   //Code Here
 
-
+inner();
 
 //Next problem
 
@@ -34,7 +36,8 @@ var callFriend = function(){
 
   //Code Here
 
-
+var calling = callFriend();
+calling('435-215-9268');
 
 //Next Problem
 
@@ -45,6 +48,15 @@ var callFriend = function(){
 */
 
   //Code Here
+ var makeCounter = function(){
+  var num = 0;
+  function callF(number){
+    return number;
+  }
+  return callF;
+};
+
+
   var count = makeCounter();
   count() // 1
   count() // 2
@@ -63,7 +75,27 @@ var callFriend = function(){
   Once completed, add a second arguments that allows the function to be invoked N number of times.
   After the function has been called N number of times, console.log('STAHHP');
 */
+var first = makeCounter(function(){alert('Here');},3);  
+
+var makeCounter = function(first,num){
+            var called = false;
+            
+            return function(){
+                if( num !== 0){
+                    first();
+                    called = true;
+                    --num;
+                }
+                else
+                {
+                    return console.log('stop');
+                }
+              }
+            }   
+  
+var second = makeCounter(function() {alert("Here");}, 3);
 
 
+  
 
 
